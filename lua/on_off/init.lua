@@ -35,7 +35,7 @@ function M.ToggleBooleanOnLine(opts)
           "No Togglable Value Found On Line " .. row,
           opts.level,
           {
-              title = "On_Off",
+              title = "Togglable (On/Off)",
               timeout = opts.notify_duration,
           }
       )
