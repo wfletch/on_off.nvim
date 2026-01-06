@@ -2,6 +2,7 @@ local M = {}
 local util= require("on_off.util")
 
 function M.ToggleBooleanOnLine(opts)
+  opts = opts or {}
   opts.level = util.validate_level(opts.level)
   opts.notify_duration = opts.notify_duration or 2000
   local line = vim.api.nvim_get_current_line()
@@ -31,11 +32,11 @@ function M.ToggleBooleanOnLine(opts)
       vim.api.nvim_set_current_line(did_not_process .. new_line)
   else
       util.notify(
-          "No Togglable Value Found On Line" .. row,
+          "No Togglable Value Found On Line " .. row,
           opts.level,
           {
-              title = opts.title,
-              timeout = 5000,
+              title = "On_Off",
+              timeout = opts.notify_duration,
           }
       )
   end
